@@ -24,7 +24,7 @@ class InitiateIngestion:
 
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
 
-            df.to_csv(self.ingestion_config.train_data_path,index=False)
+            df.to_csv(self.ingestion_config.raw_data_path,index=False)
 
             logging.info("train test split initiate")
             train_set,test_set = train_test_split(df,random_state=42,test_size=0.3)
