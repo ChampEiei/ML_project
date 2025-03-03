@@ -38,3 +38,11 @@ def evaluate_model(x_train,y_train,x_test,y_test,models,params):
         test_model_score = r2_score(y_test,y_test_pred)
         report[i] = test_model_score 
         return report
+    
+def load_object(file_path):
+    try:       
+        with open(file_path,'rb')as file:
+            obj = dill.load(file)
+            return obj
+    except Exception as e:
+        raise Custom_exception(e,sys)
