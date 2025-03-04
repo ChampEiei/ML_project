@@ -1,109 +1,19 @@
-{% extends "blueprint.html" %}
-{% block title %} home {% endblock title %}
+{% extends "base.html" %}
+
+{% block title %}Home - Chaimongkol Inpanya Portfolio{% endblock title %}
+
 {% block body %}
-<div class="container mt-5">
-    <h1 class="text-center text-primary mb-4">Predict Flight Price</h1>
-    
-    <!-- Form Starts Here -->
-    <form method="POST" action="{{url_for('predict_data')}}" class="p-4 border rounded shadow-lg bg-light">
-        
-        <!-- Duration Input -->
-        <div class="mb-3">
-            <label for="duration" class="form-label">Duration:</label>
-            <input type="number" id="duration" name="duration" class="form-control" required>
-        </div>
-
-        <!-- Days Left Input -->
-        <div class="mb-3">
-            <label for="days_left" class="form-label">Days Left:</label>
-            <input type="number" id="days_left" name="days_left" class="form-control" required>
-        </div>
-
-        <!-- Source City Select -->
-        <div class="mb-3">
-            <label for="source_city" class="form-label">Source City:</label>
-            <select id="source_city" name="source_city" class="form-select" required>
-                <option value="Delhi">Delhi</option>
-                <option value="Hyderabad">Hyderabad</option>
-                <option value="Chennai">Chennai</option>
-                <option value="Bangalore">Bangalore</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Kolkata">Kolkata</option>
-            </select>
-        </div>
-
-        <!-- Departure Time Select -->
-        <div class="mb-3">
-            <label for="departure_time" class="form-label">Departure Time:</label>
-            <select id="departure_time" name="departure_time" class="form-select" required>
-                <option value="Night">Night</option>
-                <option value="Morning">Morning</option>
-                <option value="Early_Morning">Early Morning</option>
-                <option value="Evening">Evening</option>
-                <option value="Afternoon">Afternoon</option>
-                <option value="Late_Night">Late Night</option>
-            </select>
-        </div>
-
-        <!-- Stops Select -->
-        <div class="mb-3">
-            <label for="stops" class="form-label">Stops:</label>
-            <select id="stops" name="stops" class="form-select" required>
-                <option value="one">One</option>
-                <option value="two_or_more">Two or more</option>
-                <option value="zero">Zero</option>
-            </select>
-        </div>
-
-        <!-- Arrival Time Select -->
-        <div class="mb-3">
-            <label for="arrival_time" class="form-label">Arrival Time:</label>
-            <select id="arrival_time" name="arrival_time" class="form-select" required>
-                <option value="Morning">Morning</option>
-                <option value="Evening">Evening</option>
-                <option value="Night">Night</option>
-                <option value="Early_Morning">Early Morning</option>
-                <option value="Late_Night">Late Night</option>
-                <option value="Afternoon">Afternoon</option>
-            </select>
-        </div>
-
-        <!-- Destination City Select -->
-        <div class="mb-3">
-            <label for="destination_city" class="form-label">Destination City:</label>
-            <select id="destination_city" name="destination_city" class="form-select" required>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Kolkata">Kolkata</option>
-                <option value="Bangalore">Bangalore</option>
-                <option value="Chennai">Chennai</option>
-                <option value="Hyderabad">Hyderabad</option>
-            </select>
-        </div>
-
-        <!-- Class Select -->
-        <div class="mb-3">
-            <label for="Class" class="form-label">Class:</label>
-            <select id="Class" name="Class" class="form-select" required>
-                <option value="Economy">Economy</option>
-                <option value="Business">Business</option>
-            </select>
-        </div>
-
-        <!-- Submit Button -->
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-
-    <!-- Prediction Results -->
-    <div class="mt-4 text-center">
-        <h4>Prediction Results: <span class="text-success">{{ results}}</span></h4>
-    </div>
-</div>
-
-
+<section id="home">
+  <div class="text-center">
+    <h1>Home</h1>
+    <p>Welcome to my Data Science and Analytics portfolio!</p>
+    {% if results %}
+      <h2>Prediction Result: {{ results }}</h2>
+    {% endif %}
+    {% if graph_html %}
+      <div>{{ graph_html|safe }}</div>
+    {% endif %}
+    <!-- Optionally, include a form or other content here -->
+  </div>
+</section>
 {% endblock body %}
-
-
-

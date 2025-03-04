@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Chaimongkol Inpanya Portfolio{% endblock title %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Gradient styles for header and footer */
+    .gradient-header, .gradient-footer {
+      background: linear-gradient(90deg, #000000, #0000ff);
+      color: white;
+    }
+    .nav-link {
+      color: white !important;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+    /* Optional spacing for sections */
+    section {
+      padding: 60px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Navigation -->
+  <header class="gradient-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">Chaimongkol Inpanya</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="/skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content (Unique to Each Page) -->
+  <main class="container mt-5">
+    {% block body %}
+    <!-- Page-specific content goes here -->
+    {% endblock body %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="gradient-footer py-4 mt-5">
+    <div class="container text-center">
+      <p>&copy; 2025 Chaimongkol Inpanya. All rights reserved.</p>
+      <p>Follow me on: 
+        <a href="https://www.linkedin.com/in/yourprofile" class="text-white text-decoration-underline">LinkedIn</a>,
+        <a href="https://github.com/yourprofile" class="text-white text-decoration-underline">GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
