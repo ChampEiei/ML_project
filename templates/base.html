@@ -8,9 +8,14 @@
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
+    /* Set body background to the same gradient as header and footer */
+    body {
+      background: linear-gradient(90deg, #000000, rgb(64, 17, 20));
+      color: white;
+    }
     /* Gradient styles for header and footer */
     .gradient-header, .gradient-footer {
-      background: linear-gradient(90deg, #000000, #0000ff);
+      background: linear-gradient(90deg, #000000, rgb(64, 17, 20));
       color: white;
     }
     .nav-link {
@@ -64,7 +69,7 @@
     <div class="container text-center">
       <p>&copy; 2025 Chaimongkol Inpanya. All rights reserved.</p>
       <p>Follow me on: 
-        <a href="https://www.linkedin.com/in/yourprofile" class="text-white text-decoration-underline">LinkedIn</a>,
+        <a href="https://www.linkedin.com/in/chaimongkol-inpanya-0a4aba332/" class="text-white text-decoration-underline">LinkedIn</a>,
         <a href="https://github.com/ChampEiei" class="text-white text-decoration-underline">GitHub</a>
       </p>
     </div>
@@ -78,7 +83,7 @@
   <script>
     AOS.init({
       duration: 800, // Animation duration
-      once: true     // Whether animation should happen only once while scrolling down
+      once: true     // Animate only once on scroll
     });
   </script>
 </body>

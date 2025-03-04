@@ -26,8 +26,10 @@
     transition: transform 0.2s ease-out;
   }
   #heroContent {
-    position: relative;
-    z-index: 2;
+    position: absolute;
+    bottom: 20px;
+    z-index: 3;
+
   }
   /* Dark overlay for the hero */
   #hero::before {
@@ -57,7 +59,7 @@
   }
 </style>
 
-<section id="home">
+<section id="home data-aos="fade-up"">
   <!-- Hero Section -->
   <div id="hero">
     <!-- Hero Image -->
@@ -67,7 +69,7 @@
       alt="Profile Picture"
     />
     <!-- Hero Content (Text Overlay) -->
-    <div id="heroContent" data-aos="zoom-in">
+    <div id="heroContent" data-aos="zoom-in" >
       <h1 class="hero-title">Chaimongkol Inpanya</h1>
       <p class="hero-subtitle">Data Analyst &amp; BI Specialist <span>| Welcome!</span></p>
       <p>Exploring the art of data, one project at a time.</p>
@@ -110,7 +112,7 @@
       <div class="row mt-4">
         <!-- Flight Price Prediction Teaser -->
         <div class="col-md-4 mb-4">
-          <div class="p-3 border rounded shadow-sm bg-light h-100">
+          <div class="p-3 border rounded shadow-sm bg-light h-100" style="background: linear-gradient(90deg, #000000, rgb(64, 17, 20)); color: white;">
             <h4>Flight Price Prediction</h4>
             <p class="mb-2">
               A machine learning pipeline that forecasts flight prices with scikit-learn, 
@@ -120,8 +122,8 @@
           </div>
         </div>
         <!-- GDP Forecasting Teaser -->
-        <div class="col-md-4 mb-4">
-          <div class="p-3 border rounded shadow-sm bg-light h-100">
+        <div class="col-md-4 mb-4 " >
+          <div class="p-3 border rounded shadow-sm bg-light h-100" style="background: linear-gradient(90deg, #000000, rgb(64, 17, 20)); color: white;">
             <h4>GDP Forecasting</h4>
             <p class="mb-2">
               An exploration of economic indicators, ER diagrams, data cleaning, 
@@ -131,8 +133,8 @@
           </div>
         </div>
         <!-- Capstone Project Teaser -->
-        <div class="col-md-4 mb-4">
-          <div class="p-3 border rounded shadow-sm bg-light h-100">
+        <div class="col-md-4 mb-4" >
+          <div class="p-3 border rounded shadow-sm bg-light h-100" style="background: linear-gradient(90deg, #000000, rgb(64, 17, 20)); color: white;">
             <h4>Capstone Final Year</h4>
             <p class="mb-2">
               Analyzing revenue and expenses, segmenting customers with RFM, and 

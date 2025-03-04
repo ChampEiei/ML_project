@@ -3,11 +3,10 @@
 {% block title %}About - Chaimongkol Inpanya Portfolio{% endblock title %}
 
 {% block body %}
-<section id="about" data-aos="fade-up" class="py-5" style="background-color: #fff;">
+<section id="about" data-aos="fade-up" class="py-5">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-4 text-center">
-        <!-- Profile picture using Google Drive direct link -->
         <img src="{{ url_for('static', filename='my.jpg') }}" alt="Profile Picture" class="img-fluid rounded-circle" style="max-width: 200px;">
       </div>
       <div class="col-md-8">
@@ -23,9 +22,6 @@
         </p>
       </div>
     </div>
-    
   </div>
 </section>
-
-
 {% endblock body %}
