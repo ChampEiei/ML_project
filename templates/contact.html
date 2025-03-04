@@ -3,11 +3,25 @@
 {% block title %}Contact - Chaimongkol Inpanya Portfolio{% endblock title %}
 
 {% block body %}
-<section id="contact" data-aos="fade-up">
-  <div class="text-center">
-    <h1>Contact Me</h1>
-    <p>You can reach me via email at <a href="mailto:ichamp_in@hotmail.com">ichamp_in@hotmail.com</a> or call me at 083-664-5552.</p>
-    <!-- Optional: Insert a contact form here -->
+<section id="contact" data-aos="fade-up" class="py-5">
+  <div class="container">
+    <div class="text-center">
+      <h1>Contact Me</h1>
+      <p>You can reach me via email at <a href="mailto:ichamp_in@hotmail.com">ichamp_in@hotmail.com</a> or call me at 083-664-5552.</p>
+      <p>If you have any questions regarding my work in data analysis, business intelligence, or potential collaborations, please feel free to get in touch.</p>
+      <p>You can also connect with me on social media:</p>
+      <p>
+        <a href="linkedin.com/in/chaimongkol-inpanya-0a4aba332" target="_blank">LinkedIn</a> | 
+        <a href="https://github.com/ChampEiei" target="_blank">GitHub</a>
+      </p>
+      <!-- Placeholder for LINE QR Code -->
+      <div class="mt-4">
+        <h4>Connect on LINE</h4>
+        <img src="{{ url_for('static', filename='line.jpg') }}" alt="LINE QR Code" class="img-fluid" style="max-width: 200px;">
+        <p><small>Scan to add me on LINE</small></p>
+      </div>
+      
+    </div>
   </div>
 </section>
 {% endblock body %}

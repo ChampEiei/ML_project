@@ -3,7 +3,7 @@
 {% block title %}Home - Chaimongkol Inpanya Portfolio{% endblock title %}
 
 {% block body %}
-<section id="home " class="text-center" data-aos="fade-up">
+<section id="home" class="text-center" data-aos="fade-up">
   {% if results %}
     <h2>Prediction Result: {{ results }}</h2>
   {% endif %}
@@ -28,24 +28,42 @@
     .summary {
       margin-bottom: 50px;
     }
+    /* Hide charts and summary on mobile devices */
+    @media (max-width: 768px) {
+      .grid-container, .summary {
+        display: none;
+      }
+    }
   </style>
 
-  <h1 class='pt-3'>Flight Data Dashboard</h1>
-  <div class="summary border-2 mt-2" style="background: linear-gradient(90deg,rgb(253, 253, 253), rgb(198, 123, 128)); color: white;">
-    <h2 class='pt-4'>Data Summary</h2>
-    <div class='pt-3'>
+  <h1 class="pt-3">Flight Data Dashboard</h1>
+  
+  <div class="summary border-2 mt-2" style="background: linear-gradient(90deg, rgb(253, 253, 253), rgb(198, 123, 128)); color: white;">
+    <h2 class="pt-4">Data Summary</h2>
+    <div class="pt-3">
       {{ summary|safe }}
     </div>
   </div>
-      <div>
-        <h3>Sample data</h3>
-        <p>Due to the dataset containing 300,000 rows</p> 
-      </div>
+  
+  <div>
+    <h3>Sample Data</h3>
+    <p>Due to the dataset containing 300,000 rows, only a sample is shown.</p> 
+  </div>
+  
   <div class="grid-container">
     <div class="chart">{{ graph1|safe }}</div>
     <div class="chart">{{ graph2|safe }}</div>
     <div class="chart">{{ graph3|safe }}</div>
     <div class="chart">{{ graph4|safe }}</div>
+  </div>
+
+  <!-- Note for Mobile Users and Repository Info -->
+  <div class="mt-5">
+    <p>
+      Detailed analysis and the data pipeline are available in my GitHub repository. Please visit
+      <a href="https://github.com/ChampEiei/ML_project" target="_blank">https://github.com/ChampEiei/ML_project</a>.
+      The repository's <strong>notebook</strong> folder contains the ipynb file with the full analysis and pipeline.
+    </p>
   </div>
 </section>
 {% endblock body %}
