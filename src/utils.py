@@ -1,12 +1,15 @@
 import os
 import sys 
-
+import plotly.express as px
+import plotly.io as pio
 import numpy as np 
 import pandas as pd
 import dill
 from src.exception import Custom_exception
 from sklearn.metrics import r2_score
 from sklearn.model_selection import GridSearchCV
+from flask import Flask
+
 
 def save_objects(file_path,obj):
     try:
@@ -46,3 +49,33 @@ def load_object(file_path):
             return obj
     except Exception as e:
         raise Custom_exception(e,sys)
+
+def dashboard():
+    df = pd.read_csv("notebook/data/Clean_Dataset.csv")
+    # Graph 1: Price Distribution Histogram
+    fig1 = px.histogram(df, x='price', title='Price Distribution')
+    graph1 = pio.to_html(fig1, full_html=False)
+    
+    # Graph 2: Average Price by Days Left (Line Chart)
+    avg_price_by_days = df.groupby('days_left', as_index=False)['price'].mean()
+    fig2 = px.line(avg_price_by_days, x='days_left', y='price', title='Average Price by Days Left')
+    graph2 = pio.to_html(fig2, full_html=False)
+    
+    # Graph 3: Price Distribution by Flight Class (Box Plot)
+    fig3 = px.box(df, x='class', y='price', title='Price Distribution by Flight Class')
+    graph3 = pio.to_html(fig3, full_html=False)
+    
+    # Graph 4: Frequency of Flight Stops (Bar Chart)
+    stops_count = df['stops'].value_counts().reset_index()
+    stops_count.columns = ['stops', 'count']
+    fig4 = px.bar(stops_count, x='stops', y='count', title='Frequency of Flight Stops')
+    graph4 = pio.to_html(fig4, full_html=False)
+    
+    # Data Summary: Provide statistical overview of numeric features
+    summary = df.describe().to_html(classes='table table-striped')
+    
+    return (graph1,graph2, graph3,graph4,summary)
+                            
+                            
+                           
+                           

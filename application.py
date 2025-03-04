@@ -5,6 +5,7 @@ import numpy as np
 from src.pipeline.predict_pipeline import CustomData, Predict_pipeline
 import plotly.express as px
 import plotly.io as pio
+from src.utils import dashboard
 
 application = Flask(__name__)
 app = application
@@ -57,18 +58,13 @@ def predict_data():
         predict_pipeline = Predict_pipeline()
         results = predict_pipeline.predict(pred_df)
 
-        # Example of generating a Plotly graph (replace with your actual graph logic)
-        fig = px.bar(
-            x=['Feature1', 'Feature2', 'Feature3'],
-            y=[10, 20, 30],
-            title="Prediction Results"
-        )
+        
+        graph1,graph2, graph3,graph4,summary= dashboard()
 
-        # Convert Plotly figure to HTML string
-        graph_html = pio.to_html(fig, full_html=False)
+        
 
         # Pass the graph HTML and results to the template
-        return render_template("home.html", results=f'{results[0]:,.2f}', graph_html=graph_html)
+        return render_template("predict.html", results=f'{results[0]:,.2f}', graph1=graph1,   graph2=graph2,   graph3=graph3,  graph4=graph4, summary=summary)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True, port=5001)

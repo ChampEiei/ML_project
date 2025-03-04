@@ -4,16 +4,11 @@
 
 {% block body %}
 <section id="home">
-  <div class="text-center">
-    <h1>Home</h1>
+  <div data-aos="fade-up">
+    <h1 >Home</h1>
     <p>Welcome to my Data Science and Analytics portfolio!</p>
-    {% if results %}
-      <h2>Prediction Result: {{ results }}</h2>
-    {% endif %}
-    {% if graph_html %}
-      <div>{{ graph_html|safe }}</div>
-    {% endif %}
-    <!-- Optionally, include a form or other content here -->
+   
+    
   </div>
 </section>
 {% endblock body %}

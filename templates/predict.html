@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Chaimongkol Inpanya Portfolio{% endblock title %}
+
+{% block body %}
+<section id="home " class="text-center" data-aos="fade-up">
+  {% if results %}
+    <h2>Prediction Result: {{ results }}</h2>
+  {% endif %}
+
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .chart {
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 139, 0.5); /* blue-black shadow */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .chart:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0, 0, 139, 0.7);
+    }
+    .summary {
+      margin-bottom: 50px;
+    }
+  </style>
+
+  <h1>Flight Data Dashboard</h1>
+  <div class="summary">
+    <h2>Data Summary</h2>
+    {{ summary|safe }}
+  </div>
+  
+  <div class="grid-container">
+    <div class="chart">{{ graph1|safe }}</div>
+    <div class="chart">{{ graph2|safe }}</div>
+    <div class="chart">{{ graph3|safe }}</div>
+    <div class="chart">{{ graph4|safe }}</div>
+  </div>
+</section>
+{% endblock body %}
