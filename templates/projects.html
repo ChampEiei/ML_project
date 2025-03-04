@@ -8,7 +8,7 @@
     <h1 class="text-center mb-4">Projects</h1>
     <p class="text-center">Explore my projects by clicking on the details below.</p>
 
-    <!-- Flight Price Prediction Project -->
+    <!-- Row 1: Flight Price Prediction Project -->
     <div class="border rounded p-4 shadow-sm bg-white mb-5">
       <h2>Flight Price Prediction</h2>
       <p>
@@ -19,7 +19,7 @@
       <a class="btn btn-link p-0" data-bs-toggle="collapse" href="#collapseFlightDetails" role="button" aria-expanded="false" aria-controls="collapseFlightDetails">
         Show More
       </a>
-      <!-- Collapsible detailed description -->
+      <!-- Collapsible detailed description for Flight Price Prediction -->
       <div class="collapse mt-3" id="collapseFlightDetails">
         <div class="card card-body">
           <p><strong>Data Pipeline:</strong>  
@@ -47,6 +47,10 @@
             <li>How does the price differ between Economy and Business classes?</li>
           </ul>
           <div>
+            <a href="https://github.com/ChampEiei/ML_project" target="_blank">Pipeline Source Code App</a>
+          </div>
+          <div>
+            <h1 class="text-center">Predict Price</h1>
             <form method="POST" action="{{ url_for('predict_data') }}" class="p-3 border rounded shadow-sm bg-light">
               <div class="row">
                 <div class="col-md-6 mb-3">
@@ -118,7 +122,7 @@
                 </select>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Predict</button>
               </div>
             </form>
             {% if results %}
@@ -134,14 +138,84 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Row 2: GDP Forecasting and Economic Analysis Project -->
+    <div class="border rounded p-4 shadow-sm bg-white mb-5">
+      <h3>GDP Forecasting and Economic Analysis</h3>
+      <p>
+        This project involved data exploration, designing an ER diagram, and database design. I then performed data cleaning, engineered the data, and applied deep learning (LSTM) with hyper-tuning for prediction.
+      </p>
+      <!-- See More Button -->
+      <a class="btn btn-link p-0" data-bs-toggle="collapse" href="#collapseGDPDetails" role="button" aria-expanded="false" aria-controls="collapseGDPDetails">
+        See More
+      </a>
+      <!-- Collapsible Detailed Description for GDP Project -->
+      <div class="collapse mt-3" id="collapseGDPDetails">
+        <div class="card card-body">
+          <h4>Project Overview</h4>
+          <p>
+            The goal was to forecast GDP using economic indicators. However, the dataset had very few timepoints, making it unsuitable for deep learning approaches.
+          </p>
+          <p>
+            <strong>Methodology:</strong>
+            The project comprised:
+          </p>
+          <ul>
+            <li>Data exploration and visualization</li>
+            <li>Designing an ER diagram and database schema</li>
+            <li>Data cleaning and engineering</li>
+            <li>Predicting GDP using a deep learning LSTM model with hyper-tuning</li>
+          </ul>
+          <p>
+            In conclusion, due to the limited number of timepoints in the GDP data, deep learning was not the ideal approach for prediction. This project was developed during my university studies, when my ML and deep learning expertise was less advanced than in the Flight Price Prediction project.
+          </p>
+          <!-- Place the image inside the collapse -->
+          <div class="text-center mt-3">
+            <img src="{{ url_for('static', filename='diagram.png') }}" alt="GDP Diagram" class="img-fluid" style="max-width: 300px;">
+            <p class="mt-2">GDP Project Diagram (Placeholder)</p>
           </div>
         </div>
       </div>
-      <!-- Optional: Link to the prediction form page or include the form inline -->
-      <div class="mt-3">
-        
+    </div>
+
+    <!-- Row 3: Capstone Final Year Project -->
+    <div class="border rounded p-4 shadow-sm bg-white mb-5">
+      <h3>Capstone Final Year Project: Customer Segmentation and Profit Forecasting</h3>
+      <p>
+        This project was conducted for my final year capstone. It analyzed the revenue and expenses of Market Connections Asia Public Company Limited between 2021 and 2023. The study investigated revenue trends, expense drivers, and customer segmentation based on service usage behavior using the RFM model.
+      </p>
+      <p>
+        Due to confidentiality agreements with the company, only a summary is shown here.
+      </p>
+      <!-- See More Button -->
+      <a class="btn btn-link p-0" data-bs-toggle="collapse" href="#collapseCapstoneDetails" role="button" aria-expanded="false" aria-controls="collapseCapstoneDetails">
+        See More
+      </a>
+      <!-- Collapsible Detailed Description for Capstone Project -->
+      <div class="collapse mt-3" id="collapseCapstoneDetails">
+        <div class="card card-body">
+          <h4>Project Overview</h4>
+          <p>
+            The report was prepared to analyze the revenue and expenses of the company from 2021 to 2023. It focused on examining revenue fluctuations, expense trends, and segmenting customers based on their usage behavior using the RFM model—comprising Recency, Frequency, and Monetary values.
+          </p>
+          <ul>
+            <li><strong>Customer Segmentation:</strong> The RFM model was applied to segment customers into four groups: Champions, Loyal Customers, Need Attention, and Lost Customers.</li>
+            <li><strong>Expense Analysis:</strong> Major expenses were identified, with labor costs and rental expenses being significant drivers.</li>
+            <li><strong>Profit Forecasting:</strong> Prophet model was used to forecast future profit, indicating growth potential for 2024 if key customers are retained.</li>
+          </ul>
+          <p>
+            In summary, the limited number of confidentiality restrictions meant that only a high-level summary could be shown here.
+          </p>
+          <!-- Place the image inside the collapse -->
+          <div class="text-center mt-3">
+            <img src="{{ url_for('static', filename='rfm_segmentation.png') }}" alt="K-means RFM Model Customer Segmentation" class="img-fluid" style="max-width: 300px;">
+            <p class="mt-2">K-means RFM Model Customer Segmentation (Placeholder)</p>
+          </div>
+        </div>
       </div>
     </div>
+    
   </div>
 </section>
 {% endblock body %}

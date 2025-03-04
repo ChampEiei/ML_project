@@ -3,12 +3,146 @@
 {% block title %}Home - Chaimongkol Inpanya Portfolio{% endblock title %}
 
 {% block body %}
+<style>
+  /* Hero Section Styles */
+  #hero {
+    position: relative;
+    height: 100vh;
+    background-color: #000; /* Fallback color if image not loaded */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+  }
+  #heroImage {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.2s ease-out;
+  }
+  #heroContent {
+    position: relative;
+    z-index: 2;
+  }
+  /* Dark overlay for the hero */
+  #hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  /* Make the text pop */
+  .hero-subtitle span {
+    color: #00ffff; /* Example highlight color */
+  }
+
+  /* Add some spacing for sections below the hero */
+  .home-section {
+    padding: 60px 0;
+  }
+</style>
+
 <section id="home">
-  <div data-aos="fade-up">
-    <h1 >Home</h1>
-    <p>Welcome to my Data Science and Analytics portfolio!</p>
-   
-    
+  <!-- Hero Section -->
+  <div id="hero">
+    <!-- Hero Image -->
+    <img
+      id="heroImage"
+      src="{{ url_for('static', filename='my.jpg') }}"
+      alt="Profile Picture"
+    />
+    <!-- Hero Content (Text Overlay) -->
+    <div id="heroContent" data-aos="zoom-in">
+      <h1 class="hero-title">Chaimongkol Inpanya</h1>
+      <p class="hero-subtitle">Data Analyst &amp; BI Specialist <span>| Welcome!</span></p>
+      <p>Exploring the art of data, one project at a time.</p>
+    </div>
+  </div>
+
+  <!-- Script to shrink hero image on scroll -->
+  <script>
+    window.addEventListener("scroll", function() {
+      const heroImage = document.getElementById("heroImage");
+      let scrollPos = window.scrollY;
+      // Calculate scale factor (tweak as needed)
+      let scaleValue = 1 - scrollPos / 800;
+      // Prevent scale from going below 0.5
+      if (scaleValue < 0.5) scaleValue = 0.5;
+      heroImage.style.transform = `scale(${scaleValue})`;
+    });
+  </script>
+
+  <!-- About Me & Featured Projects -->
+  <div class="container">
+    <!-- About Me Section -->
+    <section class="home-section" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>
+        I’m a recent graduate with a strong foundation in accounting, IT, and data literacy. 
+        Passionate about turning raw data into actionable insights, I’ve worked on real-world 
+        projects involving data analysis, machine learning, and business intelligence. 
+        My goal? To help organizations make data-driven decisions that spark growth and innovation.
+      </p>
+    </section>
+
+    <!-- Short Teaser for Projects -->
+    <section class="home-section" data-aos="fade-up">
+      <h2>Featured Projects</h2>
+      <p>
+        Take a glimpse at some of my data-driven creations. For more details, head over to the 
+        <a href="{{ url_for('projects') }}">Projects page</a>!
+      </p>
+      <div class="row mt-4">
+        <!-- Flight Price Prediction Teaser -->
+        <div class="col-md-4 mb-4">
+          <div class="p-3 border rounded shadow-sm bg-light h-100">
+            <h4>Flight Price Prediction</h4>
+            <p class="mb-2">
+              A machine learning pipeline that forecasts flight prices with scikit-learn, 
+              hyperparameter tuning, and real-time deployment.
+            </p>
+            <a href="{{ url_for('projects') }}#flight-price" class="btn btn-sm btn-primary">Learn More</a>
+          </div>
+        </div>
+        <!-- GDP Forecasting Teaser -->
+        <div class="col-md-4 mb-4">
+          <div class="p-3 border rounded shadow-sm bg-light h-100">
+            <h4>GDP Forecasting</h4>
+            <p class="mb-2">
+              An exploration of economic indicators, ER diagrams, data cleaning, 
+              and a deep learning LSTM approach (despite limited data points).
+            </p>
+            <a href="{{ url_for('projects') }}#gdp-forecast" class="btn btn-sm btn-primary">Learn More</a>
+          </div>
+        </div>
+        <!-- Capstone Project Teaser -->
+        <div class="col-md-4 mb-4">
+          <div class="p-3 border rounded shadow-sm bg-light h-100">
+            <h4>Capstone Final Year</h4>
+            <p class="mb-2">
+              Analyzing revenue and expenses, segmenting customers with RFM, and 
+              forecasting profit for a public company, under confidentiality.
+            </p>
+            <a href="{{ url_for('projects') }}#capstone" class="btn btn-sm btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </section>
 {% endblock body %}

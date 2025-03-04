@@ -3,18 +3,29 @@
 {% block title %}About - Chaimongkol Inpanya Portfolio{% endblock title %}
 
 {% block body %}
-<section id="about" data-aos="fade-up">
-  <div class="row align-items-center">
-    <div class="col-md-4 text-center">
-      <!-- Profile picture placeholder -->
-      <img src="path/to/your/profile-picture.jpg" alt="Profile Picture" class="img-fluid rounded-circle mb-3">
+<section id="about" data-aos="fade-up" class="py-5" style="background-color: #fff;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-4 text-center">
+        <!-- Profile picture using Google Drive direct link -->
+        <img src="{{ url_for('static', filename='my.jpg') }}" alt="Profile Picture" class="img-fluid rounded-circle" style="max-width: 200px;">
+      </div>
+      <div class="col-md-8">
+        <h2>About Me</h2>
+        <p>
+          I am a Data Analyst | Business Intelligence professional and a recent graduate with a strong foundation in accounting, IT, and data literacy. I have hands-on experience in data analysis, machine learning, and business intelligence using tools such as Python, Power BI, pandas, and scikit-learn.
+        </p>
+        <p>
+          My notable achievements include a real-world data analysis project for a company on the Stock Exchange of Thailand (SET) where I uncovered business insights, built projection models, and presented findings to executives.
+        </p>
+        <p>
+          <strong>Contact:</strong> Email: <a href="mailto:ichamp_in@hotmail.com">ichamp_in@hotmail.com</a> | Phone: 083-664-5552
+        </p>
+      </div>
     </div>
-    <div class="col-md-8">
-      <h2>About Me</h2>
-      <p>I am a Data Analyst | Business Intelligence professional and a recent graduate with a strong foundation in accounting, IT, and data literacy. I have hands-on experience in data analysis, machine learning, and business intelligence using tools such as Python, Power BI, pandas, and scikit-learn.</p>
-      <p>My notable achievements include a real-world data analysis project for a company on the Stock Exchange of Thailand (SET) where I uncovered business insights, built projection models, and presented findings to executives.</p>
-      <p><strong>Contact:</strong> Email: <a href="mailto:ichamp_in@hotmail.com">ichamp_in@hotmail.com</a> | Phone: 083-664-5552</p>
-    </div>
+    
   </div>
 </section>
+
+
 {% endblock body %}
