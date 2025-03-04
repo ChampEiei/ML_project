@@ -30,12 +30,17 @@
     }
   </style>
 
-  <h1>Flight Data Dashboard</h1>
-  <div class="summary">
-    <h2>Data Summary</h2>
-    {{ summary|safe }}
+  <h1 class='pt-3'>Flight Data Dashboard</h1>
+  <div class="summary border-2 mt-2" style="background: linear-gradient(90deg,rgb(253, 253, 253), rgb(198, 123, 128)); color: white;">
+    <h2 class='pt-4'>Data Summary</h2>
+    <div class='pt-3'>
+      {{ summary|safe }}
+    </div>
   </div>
-  
+      <div>
+        <h3>Sample data</h3>
+        <p>Due to the dataset containing 300,000 rows</p> 
+      </div>
   <div class="grid-container">
     <div class="chart">{{ graph1|safe }}</div>
     <div class="chart">{{ graph2|safe }}</div>

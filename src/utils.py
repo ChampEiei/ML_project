@@ -51,9 +51,13 @@ def load_object(file_path):
         raise Custom_exception(e,sys)
 
 def dashboard():
+    # Load the dataset
     df = pd.read_csv("notebook/data/Clean_Dataset.csv")
+    
     # Graph 1: Price Distribution Histogram
-    fig1 = px.histogram(df, x='price', title='Price Distribution')
+    # Downsample the data if necessary
+    df_hist = df.sample(n=1000, random_state=42) if len(df) > 1000 else df
+    fig1 = px.histogram(df_hist, x='price', nbins=50, title='Price Distribution')
     graph1 = pio.to_html(fig1, full_html=False)
     
     # Graph 2: Average Price by Days Left (Line Chart)
@@ -62,7 +66,9 @@ def dashboard():
     graph2 = pio.to_html(fig2, full_html=False)
     
     # Graph 3: Price Distribution by Flight Class (Box Plot)
-    fig3 = px.box(df, x='class', y='price', title='Price Distribution by Flight Class')
+    # Sample up to 1000 rows per flight class to avoid rendering too many points
+    df_box = df.groupby('class', group_keys=False).apply(lambda x: x.sample(n=min(1000, len(x)), random_state=42))
+    fig3 = px.box(df_box, x='class', y='price', title='Price Distribution by Flight Class')
     graph3 = pio.to_html(fig3, full_html=False)
     
     # Graph 4: Frequency of Flight Stops (Bar Chart)
@@ -71,10 +77,10 @@ def dashboard():
     fig4 = px.bar(stops_count, x='stops', y='count', title='Frequency of Flight Stops')
     graph4 = pio.to_html(fig4, full_html=False)
     
-    # Data Summary: Provide statistical overview of numeric features
+    # Data Summary: Statistical overview of numeric features
     summary = df.describe().to_html(classes='table table-striped')
     
-    return (graph1,graph2, graph3,graph4,summary)
+    return (graph1, graph2, graph3, graph4, summary)
                             
                             
                            

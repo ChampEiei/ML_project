@@ -17,7 +17,7 @@
       </p>
       <!-- Button to toggle more details -->
       <a class="btn btn-link p-0" data-bs-toggle="collapse" href="#collapseFlightDetails" role="button" aria-expanded="false" aria-controls="collapseFlightDetails">
-        Show More
+        See More
       </a>
       <!-- Collapsible detailed description for Flight Price Prediction -->
       <div class="collapse mt-3" id="collapseFlightDetails" style="background: inherit; color: inherit;>
@@ -51,7 +51,7 @@
           </div>
           <div>
             <h1 class="text-center">Predict Price</h1>
-            <form method="POST" action="{{ url_for('predict_data') }}" class="p-3 border rounded shadow-sm bg-light">
+            <form method="POST" action="{{ url_for('predict_data') }}" class="p-3 border rounded shadow-sm bg-light" style="background: linear-gradient(90deg, #000000, rgb(64, 17, 20)); color: white;">
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="duration" class="form-label">Duration (0-50 hrs):</label>
