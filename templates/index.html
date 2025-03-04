@@ -1,13 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>
-        hello world
-    </h1>
-</body>
-</html>
+{% extends "blueprint.html" %}
+
+{% block title %}Portfolio - Your Name{% endblock %}
+
+{% block body %}
+  <!-- About Section -->
+  <section id="about" class="container py-5">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>About Me 55</h2>
+        <div>
+          <a href="{{url_for('predict_data')}}">Go to Predict Page</a>
+        </div> 
+        <p>Hi, I am Your Name, a passionate web developer with a focus on front-end and back-end development. I have experience in creating dynamic websites and applications with the latest technologies.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="your-photo.jpg" alt="Your Photo" class="img-fluid rounded-circle">
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center">My Projects</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="project1.jpg" class="card-img-top" alt="Project 1">
+            <div class="card-body">
+              <h5 class="card-title">Project 1</h5>
+              <p class="card-text">A brief description of Project 1. Technologies used, what it does, and your role in the project.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="project2.jpg" class="card-img-top" alt="Project 2">
+            <div class="card-body">
+              <h5 class="card-title">Project 2</h5>
+              <p class="card-text">A brief description of Project 2. Technologies used, what it does, and your role in the project.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="project3.jpg" class="card-img-top" alt="Project 3">
+            <div class="card-body">
+              <h5 class="card-title">Project 3</h5>
+              <p class="card-text">A brief description of Project 3. Technologies used, what it does, and your role in the project.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container py-5">
+    <h2 class="text-center">Contact Me</h2>
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Your Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Your Name">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Your Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Your Email">
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Your Message</label>
+        <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </section>
+
+{% endblock %}

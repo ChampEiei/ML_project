@@ -32,7 +32,7 @@ def predict_data():
         
         predict_pipeline = Predict_pipeline()
         results = predict_pipeline.predict(pred_df)
-        return render_template("home.html",results=results[0])
+        return render_template("home.html",results=f'{(results[0]):,.2f}')
 
 if __name__ =="__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0",debug=True,port=5001)
